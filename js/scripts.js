@@ -18,10 +18,19 @@ xhr.onprogress = function(e) {
     if(e.lengthComputable) {
 
         let percent = (e.loaded / e.total) * 100;
-    console.log(percent);
 
+        dProgress.value = percent;
     }
 
+}
+
+xhr.upload.onprogress = function(e) {
+    if(e.lengthComputable) {
+
+        let percent = (e.loaded / e.total) * 100;
+
+        uProgress.value = percent;
+    }
 }
 
 data.append("firstName", "Jan");
